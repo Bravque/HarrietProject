@@ -43,6 +43,10 @@
   --z-fixed: 100;
 }
 
+.multiple-text{
+  color: #4681c0;
+}
+
 /* Responsive typography */
 @media screen and (min-width: 1024px) {
   :root {
@@ -427,7 +431,7 @@ body.dark-theme {
 
 
 .download-btn:hover {
-  background-color: #0056b3;
+  background-color: (hsla(207, 65%, 65%, 1));
 }
 
 
@@ -597,6 +601,11 @@ body.dark-theme {
   border-radius: 7.25rem;
   transition: background .4s; /* for dark mode animation */
 
+  /* Flexbox for vertical centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center;   
 }
 
 .services__card img{
@@ -1249,6 +1258,10 @@ body.dark-theme {
 
   .home__title{
     font-size: var(--h2-font-size);
+  }
+
+  .multiple-text{
+    font-size: 1.8rem;
   }
 
   .home__blob{
