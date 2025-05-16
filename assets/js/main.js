@@ -58,6 +58,54 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
   },
 });
 
+/*=============== Form Validation ===============*/
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form from submitting by default
+
+  // Get form field values
+  const name = document.getElementById('user-name').value.trim();  // Correct ID
+  const email = document.getElementById('user-email').value.trim(); // Correct ID
+  const message = document.getElementById('user-project').value.trim(); // Correct ID
+  const errorMessage = document.getElementById('contact-message');
+  
+  // Email regex pattern for validation
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Clear previous error message
+  errorMessage.textContent = '';
+  errorMessage.style.color = 'red';
+
+  // Validate the Name field
+  if (name === '') {
+      errorMessage.textContent = 'Please enter your name.';
+      return; // Stop form submission
+  }
+
+  // Validate the Email field
+  if (email === '') {
+      errorMessage.textContent = 'Please enter your email address.';
+      return;
+  } else if (!emailPattern.test(email)) {
+      errorMessage.textContent = 'Please enter a valid email address.';
+      return;
+  }
+
+  // Validate the Message field
+  if (message === '') {
+      errorMessage.textContent = 'Please enter a message.';
+      return;
+  }
+
+  // If all fields are valid, display success message or submit the form
+  errorMessage.style.color = 'green';
+  errorMessage.textContent = 'Form submitted successfully!';
+
+  // Optionally, submit the form using AJAX or remove preventDefault to allow the form to submit normally
+  this.submit(); // Submit the form
+});
+
+
+
 /*=============== EMAIL JS ===============*/
 const contactForm = document.getElementById('contact-form'),
       contactName = document.getElementById('contact-name'),
